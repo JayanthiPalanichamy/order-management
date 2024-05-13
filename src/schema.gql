@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateEmployeeInput {
+  name: String!
+}
+
+input CreateOrderInput {
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Employee {
+  _id: ID!
+  availablity: String!
+  name: String!
+}
+
+input ListEmployeeInput {
+  _id: String
+  availablity: String
+  name: String
+}
+
+input ListOrderInput {
+  _id: String
+  employee: String
+  name: String
+  status: String
+}
+
+type Mutation {
+  createEmployee(createEmployeeInput: CreateEmployeeInput!): Employee!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  updateOrder(UpdateOrderInput: UpdateOrderInput!): Order!
+}
+
+type Order {
+  _id: String!
+
+  """Created At"""
+  createdAt: DateTime!
+  employee: Employee
+  name: String!
+  status: String!
+
+  """Updated At"""
+  updatedAt: DateTime!
+}
+
+type Query {
+  Order(_id: String!): Order!
+  employee(_id: String!): Employee!
+  employees(filters: ListEmployeeInput): [Employee!]!
+  orders(filters: ListOrderInput): [Order!]!
+}
+
+input UpdateOrderInput {
+  _id: String!
+  name: String
+  status: String
+}
