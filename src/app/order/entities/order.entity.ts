@@ -14,6 +14,10 @@ export class Order extends Document {
   @Prop()
   name: string;
 
+  @Field(() => [String])
+  @Prop()
+  lineItems: string[];
+
   @Field(() => String)
   @Prop({
     type: String,

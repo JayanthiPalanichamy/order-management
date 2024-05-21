@@ -4,4 +4,7 @@ import { InputType, Field } from '@nestjs/graphql';
 export class CreateOrderInput {
   @Field(() => String)
   name: string;
+
+  @Field(() => [String])
+  lineItems: string[];
 }

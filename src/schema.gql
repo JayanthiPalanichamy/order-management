@@ -7,6 +7,7 @@ input CreateEmployeeInput {
 }
 
 input CreateOrderInput {
+  lineItems: [String!]!
   name: String!
 }
 
@@ -30,6 +31,7 @@ input ListEmployeeInput {
 input ListOrderInput {
   _id: String
   employee: String
+  lineItems: [String!]
   name: String
   status: String
 }
@@ -46,6 +48,7 @@ type Order {
   """Created At"""
   createdAt: DateTime!
   employee: Employee
+  lineItems: [String!]!
   name: String!
   status: String!
 
@@ -62,6 +65,7 @@ type Query {
 
 input UpdateOrderInput {
   _id: String!
+  lineItems: [String!]
   name: String
   status: String
 }

@@ -18,6 +18,7 @@ export class OrderService {
   async create(createOrderInput: CreateOrderInput): Promise<Order> {
     const createdOrder = new this.orderModel({
       name: createOrderInput.name,
+      lineItems: createOrderInput.lineItems,
     });
     return createdOrder.save();
   }

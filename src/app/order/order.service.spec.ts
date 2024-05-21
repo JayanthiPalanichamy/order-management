@@ -25,6 +25,7 @@ describe('OrderService', () => {
   let orderId = new Schema.Types.ObjectId('');
   const createOrderInput: CreateOrderInput = {
     name: chance.name(),
+    lineItems: ['milk', 'bread'],
   };
 
   const createEmployeeInput: CreateEmployeeInput = {

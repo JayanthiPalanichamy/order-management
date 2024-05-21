@@ -16,6 +16,7 @@ describe('OrderResolver', () => {
   const employeeId = new Schema.Types.ObjectId('');
   const createOrderInput: CreateOrderInput = {
     name: chance.name(),
+    lineItems: ['milk', 'bread'],
   };
 
   const mockService = {
